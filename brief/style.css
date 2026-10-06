@@ -1,0 +1,789 @@
+/* =========================================================
+   ÉLAN FITNESS — feuille de style
+   Organisation du fichier :
+   1. Réglages de base
+   2. Éléments communs (conteneur, boutons, cartes, icônes)
+   3. En-tête
+   4. Accueil
+   5. À propos
+   6. Programmes
+   7. Contact
+   8. Pied de page
+   ========================================================= */
+
+
+/* =========================================================
+   1. RÉGLAGES DE BASE
+   ========================================================= */
+
+/* Remise à zéro : on enlève les marges par défaut du navigateur
+   et on utilise le box-sizing border-box (voir le box model) */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;   /* défilement doux quand on clique sur le menu */
+}
+
+body {
+  font-family: 'Inter', Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #1F2937;
+  background-color: #F7F8FA;
+}
+
+/* Tous les titres utilisent la police Poppins */
+h1, h2, h3, h4 {
+  font-family: 'Poppins', Arial, sans-serif;
+  color: #0F1B2D;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* Un contour visible quand on navigue au clavier (accessibilité) */
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid #FF6B2C;
+  outline-offset: 2px;
+}
+
+
+/* =========================================================
+   2. ÉLÉMENTS COMMUNS
+   ========================================================= */
+
+/* Le conteneur centre le contenu et limite sa largeur */
+.conteneur {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Chaque grande partie de la page */
+.section {
+  padding: 96px 0;
+}
+
+.section-blanche {
+  background-color: #FFFFFF;
+  border-top: 1px solid #E5E7EB;
+  border-bottom: 1px solid #E5E7EB;
+}
+
+/* Titre + phrase d'introduction centrés au-dessus d'une section */
+.section-titre {
+  max-width: 640px;
+  margin: 0 auto 64px;
+  text-align: center;
+}
+
+.section-titre h2 {
+  font-size: 32px;
+  margin-bottom: 16px;
+}
+
+.section-titre h3 {
+  font-size: 26px;
+  margin-bottom: 12px;
+}
+
+.section-titre p {
+  color: #4B5563;
+}
+
+/* Petit texte orange au-dessus d'un titre */
+.sur-titre {
+  font-size: 14px;
+  font-weight: 600;
+  color: #FF6B2C;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+}
+
+/* ----- Boutons ----- */
+.bouton {
+  display: inline-block;
+  padding: 14px 28px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  cursor: pointer;
+}
+
+.bouton-principal {
+  background-color: #FF6B2C;
+  border: 1px solid #FF6B2C;
+  color: #FFFFFF;
+}
+
+.bouton-principal:hover {
+  background-color: #F05817;
+}
+
+.bouton-secondaire {
+  background-color: #FFFFFF;
+  border: 1px solid #0F1B2D;
+  color: #0F1B2D;
+}
+
+.bouton-secondaire:hover {
+  background-color: #F3F4F6;
+}
+
+/* ----- Rangée de cartes (Flexbox) ----- */
+.cartes {
+  display: flex;
+  gap: 24px;
+}
+
+.carte {
+  flex: 1;                       /* toutes les cartes ont la même largeur */
+  background-color: #FFFFFF;
+  border: 1px solid #E5E7EB;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(15, 27, 45, 0.08);
+}
+
+/* ----- Icône dans un carré orange clair ----- */
+.icone {
+  width: 48px;
+  height: 48px;
+  background-color: #FFF0EA;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icone img {
+  width: 24px;
+  height: 24px;
+}
+
+.icone-petite {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+
+.icone-petite img {
+  width: 16px;
+  height: 16px;
+}
+
+
+/* =========================================================
+   3. EN-TÊTE
+   ========================================================= */
+
+.en-tete {
+  position: sticky;              /* reste collé en haut de l'écran */
+  top: 0;
+  z-index: 10;                   /* passe devant le reste de la page */
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #E5E7EB;
+}
+
+.en-tete-contenu {
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  font-family: 'Poppins', Arial, sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: #0F1B2D;
+}
+
+/* Le point orange après le logo, créé en CSS avec ::after */
+.logo::after {
+  content: "";
+  width: 10px;
+  height: 10px;
+  margin-left: 8px;
+  background-color: #FF6B2C;
+  border-radius: 50%;
+}
+
+.menu {
+  display: flex;
+  gap: 32px;
+}
+
+.menu a {
+  font-weight: 500;
+  padding-bottom: 4px;
+  border-bottom: 2px solid transparent;
+}
+
+.menu a:hover {
+  color: #FF6B2C;
+}
+
+/* La page où l'on se trouve */
+.menu .lien-actif {
+  color: #FF6B2C;
+  font-weight: 600;
+  border-bottom-color: #FF6B2C;
+}
+
+
+/* =========================================================
+   4. ACCUEIL
+   ========================================================= */
+
+.hero {
+  padding: 64px 0 96px;
+}
+
+/* Deux colonnes : le texte à gauche, l'image à droite */
+.hero-contenu {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.hero-texte {
+  flex: 7;                       /* 7 parts sur 12 */
+}
+
+.hero-texte h1 {
+  font-size: 48px;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 24px;
+}
+
+.hero-description {
+  max-width: 520px;
+  font-size: 18px;
+  line-height: 1.6;
+  color: #4B5563;
+  margin-bottom: 32px;
+}
+
+.boutons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.hero-image {
+  flex: 5;                       /* 5 parts sur 12 */
+  min-width: 0;
+  height: 400px;
+  object-fit: cover;             /* l'image remplit le cadre sans se déformer */
+  border-radius: 16px;
+  border: 1px solid #E5E7EB;
+  box-shadow: 0 10px 25px rgba(15, 27, 45, 0.15);
+}
+
+/* Bandeau des trois chiffres */
+.chiffres {
+  display: flex;
+  margin-top: 64px;
+  padding: 32px;
+  background-color: #FFFFFF;
+  border: 1px solid #E5E7EB;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(15, 27, 45, 0.08);
+}
+
+.chiffre {
+  flex: 1;
+  text-align: center;
+  font-weight: 500;
+  color: #0F1B2D;
+}
+
+/* Un trait entre deux chiffres (sélecteur de frère adjacent) */
+.chiffre + .chiffre {
+  border-left: 1px solid #E5E7EB;
+}
+
+.chiffre-nombre {
+  font-family: 'Poppins', Arial, sans-serif;
+  font-size: 36px;
+  font-weight: 800;
+  color: #FF6B2C;
+}
+
+/* Les trois avantages ("Pourquoi Élan Fitness ?") */
+.carte-avantage {
+  padding: 24px;
+  background-color: #F7F8FA;
+  box-shadow: none;
+}
+
+.carte-avantage .icone {
+  margin-bottom: 20px;
+}
+
+.carte-avantage h3 {
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+
+.carte-avantage p {
+  color: #4B5563;
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   5. À PROPOS
+   ========================================================= */
+
+.apropos-contenu {
+  display: flex;
+  align-items: center;
+  gap: 64px;
+}
+
+.apropos-texte {
+  flex: 7;
+}
+
+.apropos-texte h2 {
+  font-size: 36px;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+.apropos-texte p {
+  color: #4B5563;
+  line-height: 1.7;
+  margin-bottom: 16px;
+}
+
+/* Les trois petites cartes "valeurs" */
+.valeurs {
+  display: flex;
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.valeur {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  background-color: #FFFFFF;
+  border: 1px solid #E5E7EB;
+  border-radius: 12px;
+  font-family: 'Poppins', Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #0F1B2D;
+}
+
+.apropos-image {
+  flex: 5;
+  min-width: 0;
+  height: 360px;
+  object-fit: cover;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(15, 27, 45, 0.15);
+}
+
+
+/* =========================================================
+   6. PROGRAMMES
+   ========================================================= */
+
+/* ----- Les 4 cartes de programmes ----- */
+.carte-programme {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;              /* les coins de l'image suivent ceux de la carte */
+}
+
+.carte-programme > img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.programme-corps {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.programme-corps h3 {
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+
+.programme-corps p {
+  font-size: 15px;
+  color: #4B5563;
+}
+
+/* Petite étiquette du niveau */
+.etiquette {
+  align-self: flex-start;        /* l'étiquette garde la largeur de son texte */
+  padding: 4px 10px;
+  margin-bottom: 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.etiquette-orange {
+  background-color: #FFEDE5;
+  color: #C2410C;
+}
+
+.etiquette-bleue {
+  background-color: #DBEAFE;
+  color: #1D4ED8;
+}
+
+.etiquette-verte {
+  background-color: #D1FAE5;
+  color: #047857;
+}
+
+/* La durée est toujours en bas de la carte grâce à margin-top: auto */
+.programme-corps .duree {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 16px;
+  border-top: 1px solid #E5E7EB;
+  font-size: 13px;
+  font-weight: 600;
+  color: #0F1B2D;
+}
+
+.programme-corps h3 + p {
+  margin-bottom: 16px;
+}
+
+.duree img {
+  width: 16px;
+  height: 16px;
+}
+
+/* ----- Les 3 formules ----- */
+.formules {
+  margin-top: 96px;
+}
+
+.formule {
+  position: relative;            /* sert de repère au badge "Populaire" */
+  display: flex;
+  flex-direction: column;
+  padding: 28px;
+}
+
+.formule h4 {
+  font-size: 20px;
+}
+
+.prix {
+  margin: 8px 0 16px;
+  font-family: 'Poppins', Arial, sans-serif;
+  font-size: 30px;
+  font-weight: 800;
+  color: #FF6B2C;
+}
+
+.prix span {
+  font-family: 'Inter', Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: #4B5563;
+}
+
+.prix-note {
+  margin: -8px 0 16px;
+  font-size: 13px;
+  color: #4B5563;
+}
+
+/* Liste avec une coche orange devant chaque ligne */
+.formule-liste {
+  flex: 1;                       /* pousse le bouton vers le bas de la carte */
+  margin-bottom: 24px;
+}
+
+.formule-liste li {
+  padding-left: 28px;
+  margin-bottom: 12px;
+  font-size: 15px;
+  background-image: url('img/icone-check.svg');
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: 16px;
+}
+
+.formule .bouton {
+  display: block;                /* le bouton prend toute la largeur */
+}
+
+/* La formule mise en avant */
+.formule-populaire {
+  border: 2px solid #FF6B2C;
+  box-shadow: 0 10px 25px rgba(255, 107, 44, 0.2);
+}
+
+.badge-populaire {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);   /* centre le badge horizontalement */
+  padding: 4px 14px;
+  background-color: #FF6B2C;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #FFFFFF;
+}
+
+
+/* =========================================================
+   7. CONTACT
+   ========================================================= */
+
+.contact-contenu {
+  display: flex;
+  align-items: flex-start;
+  gap: 32px;
+}
+
+/* ----- Colonne de gauche : les informations ----- */
+.infos {
+  flex: 2;
+  display: flex;
+  flex-direction: column;        /* les cartes sont empilées */
+  gap: 16px;
+}
+
+.info {
+  display: flex;
+  gap: 16px;
+  padding: 20px;
+  background-color: #F7F8FA;
+  border: 1px solid #E5E7EB;
+  border-radius: 12px;
+}
+
+.info h3 {
+  font-size: 16px;
+  margin-bottom: 4px;
+}
+
+.info p {
+  font-size: 14px;
+  color: #4B5563;
+}
+
+/* ----- Colonne de droite : le formulaire ----- */
+.formulaire {
+  flex: 3;
+  padding: 32px;
+  background-color: #FFFFFF;
+  border: 1px solid #E5E7EB;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(15, 27, 45, 0.08);
+}
+
+.formulaire h3 {
+  font-size: 24px;
+  margin-bottom: 24px;
+}
+
+.champ {
+  margin-bottom: 18px;
+}
+
+.champ label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #0F1B2D;
+}
+
+.champ input,
+.champ select,
+.champ textarea {
+  width: 100%;
+  padding: 10px 14px;
+  background-color: #FFFFFF;
+  border: 1px solid #E5E7EB;
+  border-radius: 8px;
+  font-family: inherit;          /* les champs reprennent la police du site */
+  font-size: 15px;
+  color: #1F2937;
+}
+
+.champ input:focus,
+.champ select:focus,
+.champ textarea:focus {
+  outline: 2px solid #FF6B2C;
+  border-color: #FF6B2C;
+}
+
+.champ small {
+  display: block;
+  margin-top: 6px;
+  font-size: 12px;
+  color: #4B5563;
+}
+
+/* La case à cocher et son texte sur la même ligne */
+.case {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 8px 0 24px;
+  font-size: 14px;
+}
+
+.formulaire .bouton {
+  display: block;
+  width: 100%;
+  font-family: inherit;
+}
+
+/* ----- Plan d'accès ----- */
+.plan {
+  margin-top: 64px;
+}
+
+.plan h3 {
+  font-size: 20px;
+  margin-bottom: 16px;
+}
+
+/* Le quadrillage est une petite image répétée en fond */
+.plan-carte {
+  height: 280px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url('img/plan-fond.png');
+  border: 1px solid #E5E7EB;
+  border-radius: 12px;
+}
+
+.plan-etiquette {
+  padding: 20px 28px;
+  background-color: #FFFFFF;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(15, 27, 45, 0.15);
+  text-align: center;
+}
+
+.plan-pin {
+  width: 40px;
+  height: 40px;
+  margin: 0 auto 8px;
+  background-color: #FF6B2C;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.plan-pin img {
+  width: 20px;
+  height: 20px;
+}
+
+.plan-nom {
+  font-family: 'Poppins', Arial, sans-serif;
+  font-weight: 700;
+  color: #0F1B2D;
+}
+
+.plan-etiquette p {
+  font-size: 13px;
+  color: #4B5563;
+}
+
+.plan-etiquette .plan-acces {
+  margin-top: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #FF6B2C;
+}
+
+
+/* =========================================================
+   8. PIED DE PAGE
+   ========================================================= */
+
+.pied-de-page {
+  padding: 48px 0 32px;
+  background-color: #0F1B2D;
+  color: #FFFFFF;
+}
+
+.pied-haut {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-bottom: 32px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.logo-clair {
+  color: #FFFFFF;
+}
+
+.slogan {
+  margin-top: 8px;
+  font-size: 14px;
+  font-style: italic;
+  color: #CBD5E1;
+}
+
+.menu-pied {
+  gap: 24px;
+}
+
+.menu-pied a {
+  font-size: 14px;
+  font-weight: 400;
+  color: #E2E8F0;
+}
+
+.pied-bas {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 24px;
+  font-size: 13px;
+  color: #94A3B8;
+}
